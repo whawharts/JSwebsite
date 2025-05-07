@@ -39,7 +39,9 @@ nav {
   overflow: hidden;
 
 }
-
+.video-container {
+  position: relative;
+}
 .backgroundvid {
   position: fixed;
   top: 0;
@@ -108,6 +110,39 @@ nav .menu{
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+.center-content h2{
+  color: #fff;
+  z-index: 1;
+  font-size: 50;
+  transition: 0.3s ease;
+}
+
+.center-content h2:hover + .creator-popup {
+  opacity: 1;
+  visibility: visible;
+}
+.creator-popup {
+  position: absolute;
+  top: 40px; /* below the h1 */
+  left: 100%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 10;
+  width: 350px;
+}
+.creator-popup img{
+  width: 270px;
+  border-radius: 8px;
+  margin: 10px;
+
 }
 
 .center-content h1{
@@ -192,8 +227,14 @@ nav .menu{
   animation: fadeSlideUp 2s ease forwards;
 }
 .whatsup {
+  position: flex; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: linear-gradient(135deg, #00F0FF, #FF6C00);
   padding: 100px 20px;
- 
+
   color: rgb(255, 255, 255);
   text-align: center;
 }
