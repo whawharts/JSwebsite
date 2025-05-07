@@ -18,3 +18,13 @@ learnBtn.addEventListener('click', function(e) {
     location.reload();
   }, 800);
 });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('animate-in'); // <-- this should be a string
+    }
+  });
+});
+
+observer.observe(document.getElementById('whatsup'));

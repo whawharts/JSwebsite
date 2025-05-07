@@ -5,11 +5,28 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
   }
+
+
+:root {
+    --bg-dark: #031D1F;
+    --accent-cyan: #00F0FF;
+    --highlight-orange: #FF6C00;
+    --text-light: #ffffff;
+}
 body{
   width: 100%;
+    background-color: var(--bg-dark);
   overflow-x: hidden;
 }
-.hero {
+.hero,
+.whatsup,
+.center-content,
+nav {
+  position: relative;
+  z-index: 1;
+}
+
+.hero{
   width: 100%;
   height: 100vh;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
@@ -18,17 +35,23 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 1s ease;
+  overflow: hidden;
+
 }
 
 .backgroundvid {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -1;
-  transition: transform 1.2s ease, opacity 1s ease;
+  z-index: -1000;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+  transition: transform 0.5s ease, opacity 1s ease;
+  justify-content: center;
 }
 
 
@@ -56,6 +79,7 @@ nav .menu{
 }
 .menu ul li {
   list-style: none;
+  margin-left: 20px;
 
 }
 .logo span{
@@ -91,6 +115,7 @@ nav .menu{
   font-size: 80px;
   color: white;
   font-weight: 600;
+  z-index: 1;
 }
 .center-content a{
   text-decoration: none;
@@ -107,6 +132,68 @@ nav .menu{
 .center-content a:hover {
   background-color: #ffffff;
   color: black;
-  box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+
+
   transform: translateY(-5px) scale(1.05);
+}
+
+@keyframes flowIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons i {
+  font-size: 46px;
+  color: white;
+  transition: 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  opacity: 0;
+  animation: flowIn 0.5s ease forwards;
+}
+.social-icons i:nth-child(1) { animation-delay: 0.5s; }
+.social-icons i:nth-child(2) { animation-delay: 0.7s; }
+.social-icons i:nth-child(3) { animation-delay: 0.9s; }
+
+
+.social-icons i:hover {
+  color:black;
+  transform:scale(1.5);
+  transform: translateY(-5px) scale(1.1);
+}
+
+
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeSlideUp 2s ease forwards;
+}
+.whatsup {
+  padding: 100px 20px;
+ 
+  color: rgb(255, 255, 255);
+  text-align: center;
 }
